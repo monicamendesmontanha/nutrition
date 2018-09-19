@@ -19,3 +19,13 @@ console.log(height);
 var tdBmi = patient.querySelector(".info-bmi");
 var bmi = weight / (height * height);
 tdBmi.textContent = bmi;
+
+if (weight <= 0 || weight > 1000) {
+  console.log("invalid weight");
+  tdBmi.textContent = "invalid weight";
+}
+
+if (height <= 0 || height >= 3) {
+  console.log("invalid height");
+  tdBmi.textContent = "invalid height";
+}
