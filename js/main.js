@@ -20,12 +20,16 @@ for(var i = 0; i < patients.length ; i++) {
     console.log("invalid weight");
     tdBmi.textContent = "invalid weight";
     validWeight = false;
+
+    patient.classList.add("invalid-patient");
   }
 
   if (height <= 0 || height >= 3) {
     console.log("invalid height");
     tdBmi.textContent = "invalid height";
     validHeight = false;
+
+    patient.classList.add("invalid-patient");
   }
 
   if(validWeight && validHeight) {
