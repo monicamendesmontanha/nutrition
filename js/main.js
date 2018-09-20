@@ -38,4 +38,10 @@ for(var i = 0; i < patients.length ; i++) {
   }
 }
 
+var addButton = document.querySelector("#add-patient");
+addButton.addEventListener("click", function() {
+  event.preventDefault();
+  console.log("Fui clicado!");
+})
+
 
