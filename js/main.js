@@ -1,31 +1,37 @@
 var title = document.querySelector(".title");
 title.textContent = "Clinical Nutrition";
 
-var patient = document.querySelector("#first-patient");
+var patients = document.querySelectorAll(".patient");
 
-var tdWeight = patient.querySelector(".info-weight");
-var weight = tdWeight.textContent;
+for(var i = 0; i < patients.length ; i++) {
+  var patient = patients[i];
 
-var tdHeight = patient.querySelector(".info-height");
-var height = tdHeight.textContent;
+  var tdWeight = patient.querySelector(".info-weight");
+  var tdHeight = patient.querySelector(".info-height");
+  var tdBmi = patient.querySelector(".info-bmi");
 
-console.log(patient);
-console.log(tdWeight);
-console.log(weight);
-console.log(tdHeight);
-console.log(height);
+  var weight = tdWeight.textContent;
+  var height = tdHeight.textContent;
 
+  var validWeight = true;
+  var validHeight = true;
 
-var tdBmi = patient.querySelector(".info-bmi");
-var bmi = weight / (height * height);
-tdBmi.textContent = bmi;
+  if (weight <= 0 || weight > 1000) {
+    console.log("invalid weight");
+    tdBmi.textContent = "invalid weight";
+    validWeight = false;
+  }
 
-if (weight <= 0 || weight > 1000) {
-  console.log("invalid weight");
-  tdBmi.textContent = "invalid weight";
+  if (height <= 0 || height >= 3) {
+    console.log("invalid height");
+    tdBmi.textContent = "invalid height";
+    validHeight = false;
+  }
+
+  if(validWeight && validHeight) {
+    var bmi = weight / (height * height);
+    tdBmi.textContent = bmi.toFixed(2);   
+  }
 }
 
-if (height <= 0 || height >= 3) {
-  console.log("invalid height");
-  tdBmi.textContent = "invalid height";
-}
+
