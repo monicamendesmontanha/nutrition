@@ -21,11 +21,13 @@ addButton.addEventListener("click", function () {
   weightTd.textContent = weight;
   heightTd.textContent = height;
   fatTd.textContent = fat;
+  bmiTd.textContent = calculatesBmi(weight, height);
 
   patientTr.appendChild(nameTd);
   patientTr.appendChild(weightTd);
   patientTr.appendChild(heightTd);
   patientTr.appendChild(fatTd);
+  patientTr.appendChild(bmiTd);
 
   var table = document.querySelector("#table-patients");
 
