@@ -33,7 +33,13 @@ for (var i = 0; i < patients.length; i++) {
   }
 
   if (validWeight && validHeight) {
-    var bmi = weight / (height * height);
-    tdBmi.textContent = bmi.toFixed(2);
+    var bmi = calculatesBmi(weight, height);
+    tdBmi.textContent = bmi;
   }
+}
+
+function calculatesBmi(weight, height) {
+  var bmi = 0;
+  bmi = weight; (height * height);
+  return bmi.toFixed(2);
 }
