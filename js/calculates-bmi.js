@@ -1,3 +1,9 @@
+function calculatesBmi(weight, height) {
+  var bmi = 0;
+  bmi = weight / (height * height);
+  return bmi.toFixed(2);
+}
+
 var title = document.querySelector(".title");
 title.textContent = "Clinical Nutrition";
 
@@ -36,10 +42,4 @@ for (var i = 0; i < patients.length; i++) {
     var bmi = calculatesBmi(weight, height);
     tdBmi.textContent = bmi;
   }
-}
-
-function calculatesBmi(weight, height) {
-  var bmi = 0;
-  bmi = weight; (height * height);
-  return bmi.toFixed(2);
 }
