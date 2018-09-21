@@ -4,6 +4,22 @@ function calculatesBmi(weight, height) {
   return bmi.toFixed(2);
 }
 
+function validWeight(weight) {
+  if (weight < 0 && weight > 1000) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function validHeight(height) {
+  if (height < 0 && height > 3.00) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 var title = document.querySelector(".title");
 title.textContent = "Clinical Nutrition";
 
