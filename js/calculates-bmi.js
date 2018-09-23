@@ -4,7 +4,7 @@ function calculatesBmi(weight, height) {
   return bmi.toFixed(2);
 }
 
-function validWeight(weight) {
+function isValidWeight(weight) {
   if (weight < 0 && weight > 1000) {
     return true;
   } else {
@@ -12,7 +12,7 @@ function validWeight(weight) {
   }
 }
 
-function validHeight(height) {
+function isValidHeight(height) {
   if (height < 0 && height > 3.00) {
     return true;
   } else {
@@ -35,10 +35,10 @@ for (var i = 0; i < patients.length; i++) {
   var weight = tdWeight.textContent;
   var height = tdHeight.textContent;
 
-  var validWeight = true;
-  var validHeight = true;
+  var validWeight = isValidWeight(weight);
+  var validHeight = isValidHeight(height);
 
-  if (weight <= 0 || weight > 1000) {
+  if (!validWeight) {
     console.log("invalid weight");
     tdBmi.textContent = "invalid weight";
     validWeight = false;
@@ -46,7 +46,7 @@ for (var i = 0; i < patients.length; i++) {
     patient.classList.add("invalid-patient");
   }
 
-  if (height <= 0 || height >= 3) {
+  if (!validHeight) {
     console.log("invalid height");
     tdBmi.textContent = "invalid height";
     validHeight = false;
