@@ -1,6 +1,6 @@
 function getPatientFromForm(form) {
 
-    var patient = {
+    const patient = {
         name: form.name.value,
         weight: form.weight.value,
         height: form.height.value,
@@ -11,7 +11,7 @@ function getPatientFromForm(form) {
 }
 
 function buildsTd(data, className) {
-    var td = document.createElement("td");
+    const td = document.createElement("td");
     td.classList.add(className);
     td.textContent = data;
 
@@ -19,7 +19,7 @@ function buildsTd(data, className) {
 }
 
 function buildTr(patient) {
-    var patientTr = document.createElement("tr");
+    const patientTr = document.createElement("tr");
     patientTr.classList.add("patient");
 
     patientTr.appendChild(buildsTd(patient.name, "info-name"));
@@ -32,7 +32,7 @@ function buildTr(patient) {
 }
 
 function validatesPatient(patient) {
-    var errors = [];
+    const errors = [];
 
     if (patient.name.length == 0) {
         errors.push("The name cannot be blank");
@@ -62,37 +62,37 @@ function validatesPatient(patient) {
 }
 
 function showErrorsMessage(errors) {
-    var ul = document.querySelector("#errors-message");
+    const ul = document.querySelector("#errors-message");
     ul.innerHTML = "";
 
     errors.forEach(function(error) {
-        var li = document.createElement("li");
+        const li = document.createElement("li");
         li.textContent = error;
         ul.appendChild(li);
     });
 }
 
-var addButton = document.querySelector("#add-patient");
+const addButton = document.querySelector("#add-patient");
 addButton.addEventListener("click", function(event) {
     event.preventDefault();
 
-    var form = document.querySelector("#form-add");
+    const form = document.querySelector("#form-add");
 
-    var patient = getPatientFromForm(form);
+    const patient = getPatientFromForm(form);
 
-    var patientTr = buildTr(patient);
+    const patientTr = buildTr(patient);
 
-    var errors = validatesPatient(patient);
+    const errors = validatesPatient(patient);
 
     if (errors.length > 0) {
         showErrorsMessage(errors);
         return
     }
 
-    var table = document.querySelector("#table-patients");
+    const table = document.querySelector("#table-patients");
     table.appendChild(patientTr);
     form.reset();
 
-    var errorsMessage = document.querySelector("#errors-message");
+    const errorsMessage = document.querySelector("#errors-message");
     errorsMessage.innerHTML = "";
 });

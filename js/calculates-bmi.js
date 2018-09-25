@@ -1,5 +1,5 @@
 function calculatesBmi(weight, height) {
-  var bmi = 0;
+  let bmi = 0;
   bmi = weight / (height * height);
   return bmi.toFixed(2);
 }
@@ -20,23 +20,23 @@ function isValidHeight(height) {
   }
 }
 
-var title = document.querySelector(".title");
+const title = document.querySelector(".title");
 title.textContent = "Clinical Nutrition";
 
-var patients = document.querySelectorAll(".patient");
+const patients = document.querySelectorAll(".patient");
 
-for (var i = 0; i < patients.length; i++) {
-  var patient = patients[i];
+for (let i = 0; i < patients.length; i++) {
+  const patient = patients[i];
 
-  var tdWeight = patient.querySelector(".info-weight");
-  var tdHeight = patient.querySelector(".info-height");
-  var tdBmi = patient.querySelector(".info-bmi");
+  const tdWeight = patient.querySelector(".info-weight");
+  const tdHeight = patient.querySelector(".info-height");
+  const tdBmi = patient.querySelector(".info-bmi");
 
-  var weight = tdWeight.textContent;
-  var height = tdHeight.textContent;
+  const weight = tdWeight.textContent;
+  const height = tdHeight.textContent;
 
-  var validWeight = isValidWeight(weight);
-  var validHeight = isValidHeight(height);
+  const validWeight = isValidWeight(weight);
+  const validHeight = isValidHeight(height);
 
   if (!validWeight) {
     console.log("invalid weight", weight);
@@ -53,7 +53,7 @@ for (var i = 0; i < patients.length; i++) {
   }
 
   if (validWeight && validHeight) {
-    var bmi = calculatesBmi(weight, height);
+    let bmi = calculatesBmi(weight, height);
     tdBmi.textContent = bmi;
   }
 }
