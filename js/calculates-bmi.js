@@ -40,7 +40,6 @@ for (var i = 0; i < patients.length; i++) {
 
   if (!validWeight) {
     console.log("invalid weight", weight);
-    validWeight = false;
     tdBmi.textContent = "invalid weight";
 
     patient.classList.add("invalid-patient");
@@ -48,7 +47,6 @@ for (var i = 0; i < patients.length; i++) {
 
   if (!validHeight) {
     console.log("invalid height", height);
-    validHeight = false;
     tdBmi.textContent = "invalid height";
 
     patient.classList.add("invalid-patient");
