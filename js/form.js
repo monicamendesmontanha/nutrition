@@ -22,11 +22,11 @@ function buildTr(patient) {
     const patientTr = document.createElement("tr");
     patientTr.classList.add("patient");
 
-    patientTr.appendChild(buildsTd(patient.name, "info-name"));
-    patientTr.appendChild(buildsTd(patient.weight, "info-weight"));
-    patientTr.appendChild(buildsTd(patient.height, "info-height"));
-    patientTr.appendChild(buildsTd(patient.fat, "info-fat"));
-    patientTr.appendChild(buildsTd(patient.bmi, "info-bmi"));
+    patientTr.appendChild(buildsTd(patient.nome, "info-name"));
+    patientTr.appendChild(buildsTd(patient.peso, "info-weight"));
+    patientTr.appendChild(buildsTd(patient.altura, "info-height"));
+    patientTr.appendChild(buildsTd(patient.gordura, "info-fat"));
+    patientTr.appendChild(buildsTd(patient.imc, "info-bmi"));
 
     return patientTr;
 }
@@ -65,22 +65,26 @@ function showErrorsMessage(errors) {
     const ul = document.querySelector("#errors-message");
     ul.innerHTML = "";
 
-    errors.forEach(function(error) {
+    errors.forEach(function (error) {
         const li = document.createElement("li");
         li.textContent = error;
         ul.appendChild(li);
     });
 }
 
+function addPatient(patient) {
+    const patientTr = buildTr(patient);
+    const table = document.querySelector("#table-patients");
+    table.appendChild(patientTr);
+}
+
 const addButton = document.querySelector("#add-patient");
-addButton.addEventListener("click", function(event) {
+addButton.addEventListener("click", function (event) {
     event.preventDefault();
 
     const form = document.querySelector("#form-add");
 
     const patient = getPatientFromForm(form);
-
-    const patientTr = buildTr(patient);
 
     const errors = validatesPatient(patient);
 
@@ -89,8 +93,8 @@ addButton.addEventListener("click", function(event) {
         return
     }
 
-    const table = document.querySelector("#table-patients");
-    table.appendChild(patientTr);
+    addPatient(patient);
+
     form.reset();
 
     const errorsMessage = document.querySelector("#errors-message");
